@@ -10,7 +10,7 @@ def load_model(model_name):
 # Tampilan awal aplikasi
 st.title('Prediksi Harga Emas')
 
-# Nama-nama model (tanpa ekstensi .pkl karena sudah ditangani dalam fungsi load_model)
+# Nama-nama model
 model_names = {
     "Linear Regression": "lr_model",
     "Decision Tree": "dt_model",
@@ -38,5 +38,5 @@ if st.button('Prediksi Harga Emas'):
                               columns=['Close', 'Data Inflasi', 'Kurs Tengah'])
     prediction = model.predict(input_data)
     
-    # Menampilkan hasil prediksi
-    st.write(f"Prediksi Harga Emas: {prediction[0]:.2f}")
+    # Menampilkan hasil prediksi dengan maksimal empat angka di belakang koma
+    st.write(f"Prediksi Harga Emas: {prediction[0]:.4f}")
